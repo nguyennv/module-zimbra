@@ -1,1 +1,13 @@
+# Base ignore
 /.project
+/.buildpath
+/.settings
+/data/cache/
+/data/config/diagnostic-*.xml
+/data/logs/*
+/data/logs/data_logs/
+/data/logs/error_logs/
+/data/logs/ip_logs/
+/data/logs/ref_logs/
+/data/logs/voting_logs/
+/data/tmp/
