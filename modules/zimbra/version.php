@@ -12,9 +12,9 @@ if ( ! defined( 'NV_MAINFILE' ) ) die( 'Stop!!!' );
 
 $module_version = array(
 	'name' => 'Zimbra',
-	'modfuncs' => 'main,register',
-	'change_alias' => 'main,register',
-	'submenu' => 'main,register',
+	'modfuncs' => 'main,preauth',
+	'change_alias' => 'main,preauth',
+	'submenu' => 'main,preauth',
 	'is_sysmod' => 0,
 	'virtual' => 1,
 	'version' => '4.0.00',

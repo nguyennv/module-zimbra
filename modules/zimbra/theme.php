@@ -8,7 +8,7 @@
  * @Createdate Wed, 06 Apr 2016 02:26:16 GMT
  */
 
-if ( ! defined( 'NV_IS_MOD_ZIMBRA' ) ) die( 'Stop!!!' );
+if (!defined('NV_IS_MOD_ZIMBRA')) die('Stop!!!');
 
 /**
  * nv_theme_zimbra_main()
@@ -16,17 +16,20 @@ if ( ! defined( 'NV_IS_MOD_ZIMBRA' ) ) die( 'Stop!!!' );
  * @param mixed $array_data
  * @return
  */
-function nv_theme_zimbra_main ( $array_data )
+function nv_theme_zimbra_main($config_server)
 {
-    global $global_config, $module_name, $module_file, $lang_module, $module_config, $module_info, $op;
-
-    $xtpl = new XTemplate( $op . '.tpl', NV_ROOTDIR . '/themes/' . $module_info['template'] . '/modules/' . $module_file );
-    $xtpl->assign( 'LANG', $lang_module );
-
+    global $global_config, $module_name, $module_file, $lang_module, $module_config, $module_info, $op, $user_info;
     
-
-    $xtpl->parse( 'main' );
-    return $xtpl->text( 'main' );
+    $xtpl = new XTemplate($op . '.tpl', NV_ROOTDIR . '/themes/' . $module_info['template'] . '/modules/' . $module_file);
+    $xtpl->assign('LANG', $lang_module);
+    $xtpl->assign('MODULE_NAME', $module_name);
+    $xtpl->assign('OP', $op);
+    
+    $xtpl->assign('REGISTE_EMAIL', $user_info['username'] . '@' . $config_server['name']);
+    $xtpl->assign('CHECKSS', $user_info['checkss']);
+    
+    $xtpl->parse('main');
+    return $xtpl->text('main');
 }
 
 /**
@@ -35,15 +38,13 @@ function nv_theme_zimbra_main ( $array_data )
  * @param mixed $array_data
  * @return
  */
-function nv_theme_zimbra_register ( $array_data )
+function nv_theme_zimbra_register($array_data)
 {
     global $global_config, $module_name, $module_file, $lang_module, $module_config, $module_info, $op;
-
-    $xtpl = new XTemplate( $op . '.tpl', NV_ROOTDIR . '/themes/' . $module_info['template'] . '/modules/' . $module_file );
-    $xtpl->assign( 'LANG', $lang_module );
-
     
-
-    $xtpl->parse( 'main' );
-    return $xtpl->text( 'main' );
+    $xtpl = new XTemplate($op . '.tpl', NV_ROOTDIR . '/themes/' . $module_info['template'] . '/modules/' . $module_file);
+    $xtpl->assign('LANG', $lang_module);
+    
+    $xtpl->parse('main');
+    return $xtpl->text('main');
 }
